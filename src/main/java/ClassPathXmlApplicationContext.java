@@ -17,7 +17,7 @@ public class ClassPathXmlApplicationContext {
     private final List<BeanDefinition> beanDefinitions = new ArrayList<>();
 
     // 存放单例模式的Bean实例
-    private final Map<String, BeanDefinition> singletons = new HashMap<>();
+    private final Map<String, Object> singletons = new HashMap<>();
 
     public ClassPathXmlApplicationContext(String filename){
         this.readXml(filename);
@@ -55,9 +55,10 @@ public class ClassPathXmlApplicationContext {
     private void instanceBeans(){
         for (BeanDefinition beanDefinition : beanDefinitions) {
             try {
-                singletons.put(beanDefinition.getId(), (BeanDefinition) Class.forName(beanDefinition.getClassName()).
+                Object instance = Class.forName(beanDefinition.getClassName()).
                         getDeclaredConstructor().
-                        newInstance());
+                        newInstance();
+                singletons.put(beanDefinition.getId(), instance);
             } catch (ClassNotFoundException | InvocationTargetException | InstantiationException |
                      IllegalAccessException | NoSuchMethodException e) {
                 throw new RuntimeException(e);
