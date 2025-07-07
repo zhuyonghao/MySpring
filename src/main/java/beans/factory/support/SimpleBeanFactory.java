@@ -10,6 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 根据类名直接获取对象，如果没有获得，实例化对象，并将其放在singleton中
+ * 注册BeanDefinition将名称和BeanDefinition放入集合之中
+ */
 public class SimpleBeanFactory implements BeanFactory {
     private List<BeanDefinition> beanDefinitions = new ArrayList<>();
     private List<String> beanNames = new ArrayList<>();

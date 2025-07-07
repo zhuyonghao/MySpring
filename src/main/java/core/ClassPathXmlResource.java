@@ -8,7 +8,9 @@ import org.dom4j.io.SAXReader;
 import java.net.URL;
 import java.util.Iterator;
 
-
+/**
+ * 实现资源接口使其可以使用迭代器方式访问XML资源
+ */
 public class ClassPathXmlResource implements Resource {
     Document document;
     Element rootElement;

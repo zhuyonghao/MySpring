@@ -8,6 +8,12 @@ import beans.factory.xml.XmlBeanDefinitionReader;
 import core.ClassPathXmlResource;
 import core.Resource;
 
+/**
+ * 实现接口并使用组合实现多态
+ * 调用ClassPathXmlResource获取URL
+ * 调用XmlBeanDefinitionReader加载资源并注册BeanDefinition
+ * beanFactory使用SimpleBeanFactory进行初始化
+ */
 public class ClassPathXmlApplicationContext implements BeanFactory {
     BeanFactory beanFactory;
     //context负责整合容器的启动过程，读外部配置，解析Bean定义，创建BeanFactory

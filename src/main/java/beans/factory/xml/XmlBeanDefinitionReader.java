@@ -5,6 +5,10 @@ import beans.factory.config.BeanDefinition;
 import core.Resource;
 import org.dom4j.Element;
 
+/**
+ * 读取XML文件信息获取BeanDefinition对象
+ * 并在BeanFactory中注册
+ */
 public class XmlBeanDefinitionReader {
     BeanFactory beanFactory;
 
