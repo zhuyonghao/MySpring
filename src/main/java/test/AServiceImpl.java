@@ -1,3 +1,5 @@
+package test;
+
 public class AServiceImpl implements Aservice {
     @Override
     public void sayHello() {
