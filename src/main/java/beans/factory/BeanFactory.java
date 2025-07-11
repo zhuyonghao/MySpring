@@ -10,5 +10,7 @@ import beans.BeansException;
 public interface BeanFactory {
     Object getBean(String BeanName) throws BeansException;
 
-    void registerBeanDefinition(BeanDefinition beanDefinition);
+    Boolean containsBean(String BeanName);
+
+    void registerBean(String beanName, Object bean);
 }

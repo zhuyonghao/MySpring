@@ -29,6 +29,14 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
         return this.beanFactory.getBean(beanName);
     }
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
-        this.beanFactory.registerBeanDefinition(beanDefinition);
+        this.beanFactory.registerBean(beanDefinition.getClassName(), beanDefinition);
     }
+
+    public Boolean containsBean(String name) {
+        return this.beanFactory.containsBean(name);
+    }
+    public void registerBean(String beanName, Object obj) {
+        this.beanFactory.registerBean(beanName, obj);
+    }
+
 }
